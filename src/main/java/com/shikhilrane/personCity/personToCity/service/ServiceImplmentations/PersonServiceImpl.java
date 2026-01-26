@@ -27,14 +27,9 @@ public class PersonServiceImpl implements PersonService {
                     dto.setName(p.getName());
                     dto.setAge(p.getAge());
                     dto.setCity_id(p.getCity().getId());
-
-                    CityDto cityDto = new CityDto();
-                    cityDto.setId(p.getCity().getId());
-                    cityDto.setName(p.getCity().getName());
-                    cityDto.setState(p.getCity().getState());
-                    cityDto.setCountry(p.getCity().getCountry());
-
-                    dto.setCity(cityDto);
+                    dto.setCityName(p.getCity().getName());
+                    dto.setState(p.getCity().getState());
+                    dto.setCountry(p.getCity().getCountry());
 
                     return dto;
                 });

@@ -12,5 +12,7 @@ public class PersonDto {
     private String name;
     private int age;
     private Long city_id;
-    private CityDto city;
+    private String cityName;
+    private String state;
+    private String country;
 }

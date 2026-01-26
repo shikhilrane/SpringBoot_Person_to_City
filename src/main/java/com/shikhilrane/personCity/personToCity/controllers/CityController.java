@@ -1,6 +1,5 @@
 package com.shikhilrane.personCity.personToCity.controllers;
 
-import com.shikhilrane.personCity.personToCity.dto.PersonDto;
 import com.shikhilrane.personCity.personToCity.dto.PersonDtoForCity;
 import com.shikhilrane.personCity.personToCity.service.CityService;
 import lombok.RequiredArgsConstructor;
