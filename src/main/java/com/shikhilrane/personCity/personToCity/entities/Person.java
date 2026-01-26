@@ -24,4 +24,9 @@ public class Person {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "city_id")
     private City city;
+
+    // Owning side & one person can have only one Aadhaar
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JoinColumn(name = "aadhar_id")
+    private AadharCard aadharCard;
 }

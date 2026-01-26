@@ -26,10 +26,10 @@ public class PersonServiceImpl implements PersonService {
                     dto.setId(p.getId());
                     dto.setName(p.getName());
                     dto.setAge(p.getAge());
-                    dto.setCity_id(p.getCity().getId());
                     dto.setCityName(p.getCity().getName());
                     dto.setState(p.getCity().getState());
                     dto.setCountry(p.getCity().getCountry());
+                    dto.setAadhaarNumber(p.getAadharCard().getAadharNumber());
 
                     return dto;
                 });

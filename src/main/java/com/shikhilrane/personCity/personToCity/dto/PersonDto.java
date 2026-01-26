@@ -11,8 +11,8 @@ public class PersonDto {
     private Long id;
     private String name;
     private int age;
-    private Long city_id;
     private String cityName;
     private String state;
     private String country;
+    private String aadhaarNumber;
 }
