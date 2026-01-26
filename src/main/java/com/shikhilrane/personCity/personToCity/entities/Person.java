@@ -21,7 +21,7 @@ public class Person {
     private int age;
 
     // Owning side & one person can have only one city
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "city_id")
     private City city;
 }

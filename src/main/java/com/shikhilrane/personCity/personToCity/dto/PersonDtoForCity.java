@@ -7,10 +7,9 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PersonDto {
+public class PersonDtoForCity {
     private Long id;
     private String name;
     private int age;
-    private Long city_id;
-    private CityDto city;
+    private String cityName;
 }
