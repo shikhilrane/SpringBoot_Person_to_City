@@ -1,5 +1,7 @@
 package com.shikhilrane.personCity.personToCity.controllers;
 
+import com.shikhilrane.personCity.personToCity.dto.PersonDto;
+import com.shikhilrane.personCity.personToCity.dto.PersonDtoForAll;
 import com.shikhilrane.personCity.personToCity.dto.PersonDtoForCity;
 import com.shikhilrane.personCity.personToCity.service.CityService;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +19,12 @@ import java.util.List;
 public class CityController {
 
     private final CityService cityService;
+
+    @GetMapping
+    public ResponseEntity<List<PersonDtoForAll>> getAllPersons(){
+        List<PersonDtoForAll> getAll = cityService.getAllPersonList();
+        return ResponseEntity.ok(getAll);
+    }
 
     @GetMapping("/{getPersonsByCityId}")
     public ResponseEntity<List<PersonDtoForCity>> getPersonsByCity(@PathVariable (name = "getPersonsByCityId") Long id){

@@ -8,6 +8,7 @@ import com.shikhilrane.personCity.personToCity.repositories.PersonRepository;
 import com.shikhilrane.personCity.personToCity.service.PersonService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -16,22 +17,14 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class PersonServiceImpl implements PersonService {
 
+    @Autowired
+    private ModelMapper modelMapper;
+
     private final PersonRepository personRepository;
 
     @Override
     public Optional<PersonDto> getPerson(Long id) {
         return personRepository.findById(id)
-                .map(p -> {
-                    PersonDto dto = new PersonDto();
-                    dto.setId(p.getId());
-                    dto.setName(p.getName());
-                    dto.setAge(p.getAge());
-                    dto.setCityName(p.getCity().getName());
-                    dto.setState(p.getCity().getState());
-                    dto.setCountry(p.getCity().getCountry());
-                    dto.setAadhaarNumber(p.getAadharCard().getAadharNumber());
-
-                    return dto;
-                });
+                .map((element) -> modelMapper.map(element, PersonDto.class));
     }
 }
