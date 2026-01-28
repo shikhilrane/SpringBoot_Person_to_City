@@ -23,7 +23,7 @@ public class PersonController {
         Optional<PersonDto> person = personService.getPerson(id);
         return person
                 .map(person1 ->ResponseEntity.ok(person1))
-                .orElse(ResponseEntity.notFound().build());
+                .orElseThrow(() -> new RuntimeException("Person not found wth given id : " + id));
     }
 
 }

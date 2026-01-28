@@ -24,7 +24,11 @@ public class CityServiceImpl implements CityService {
 
     @Override
     public List<PersonDtoForCity> getAllPersons(Long id) {
-        return personRepository.findByCityId(id)
+        List<Person> byCityId = personRepository.findByCityId(id);
+        if (byCityId.isEmpty()) {
+            throw new RuntimeException("No City found for this id : " + id);
+        }
+        return byCityId
                 .stream()
 //                .map(p -> {
 //                    PersonDtoForCity personDto = new PersonDtoForCity();
