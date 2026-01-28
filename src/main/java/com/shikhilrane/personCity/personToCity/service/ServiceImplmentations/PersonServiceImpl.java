@@ -25,6 +25,18 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public Optional<PersonDto> getPerson(Long id) {
         return personRepository.findById(id)
-                .map((element) -> modelMapper.map(element, PersonDto.class));
+                .map((element) -> {
+                    PersonDto dto = modelMapper.map(element, PersonDto.class);
+
+                    // override roles manually
+                    dto.setRoles(
+                            element.getRoles()
+                                    .stream()
+                                    .map(r -> r.getName().name())
+                                    .toList()
+                    );
+
+                    return dto;
+                });
     }
 }

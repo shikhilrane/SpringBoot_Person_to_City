@@ -3,6 +3,9 @@ package com.shikhilrane.personCity.personToCity.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,7 +23,7 @@ public class Person {
     @Column(nullable = false)
     private int age;
 
-    // Owning side & one person can have only one city
+    // Owning side & multiple person can have only one city
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "city_id")
     private City city;
@@ -29,4 +32,14 @@ public class Person {
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "aadhar_id")
     private AadharCard aadharCard;
+
+    // Owning side & multiple person can have multiple Role
+    @ManyToMany
+    @JoinTable(
+            name = "person_role",
+            joinColumns = @JoinColumn(name = "person_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private List<Role> roles = new ArrayList<>();
+
 }

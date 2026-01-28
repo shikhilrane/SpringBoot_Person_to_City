@@ -2,6 +2,8 @@ package com.shikhilrane.personCity.personToCity.dto;
 
 import lombok.*;
 
+import java.util.List;
+
 @Data
 @Getter
 @Setter
@@ -15,4 +17,6 @@ public class PersonDto {
     private String state;
     private String country;
     private String aadhaarNumber;
+    private List<String> roles;   // ADMIN, USER, MANAGER...
+
 }

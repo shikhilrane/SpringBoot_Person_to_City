@@ -19,6 +19,7 @@ public class AadharCard {
     @Column(unique = true, nullable = false)
     private String aadharNumber;
 
+    // Inverse Side & & One Aadhaar can have one Persons in it
     @OneToOne(mappedBy = "aadharCard", fetch = FetchType.LAZY)
     private Person person;
 }

@@ -1,3 +1,6 @@
+-- =========================
+-- CITY
+-- =========================
 INSERT INTO city (name, state, country) VALUES
 ('Indore', 'Madhya Pradesh', 'India'),
 ('Bhopal', 'Madhya Pradesh', 'India'),
@@ -5,6 +8,9 @@ INSERT INTO city (name, state, country) VALUES
 ('Bangalore', 'Karnataka', 'India'),
 ('Hyderabad', 'Telangana', 'India');
 
+-- =========================
+-- AADHAAR CARD
+-- =========================
 INSERT INTO aadhar_card (aadhar_number) VALUES
 ('8347 2910 5643'),
 ('9123 4578 1029'),
@@ -58,6 +64,9 @@ INSERT INTO aadhar_card (aadhar_number) VALUES
 ('6473 1905 2846');
 
 
+-- =========================
+-- PERSON
+-- =========================
 INSERT INTO person (name, age, city_id, aadhar_id) VALUES
 ('Rohan Malhotra', 27, 4, 1),
 ('Amit Sharma', 25, 1, 2),
@@ -109,3 +118,134 @@ INSERT INTO person (name, age, city_id, aadhar_id) VALUES
 ('Nisha Ali', 23, 2, 48),
 ('Isha Choudhary', 25, 2, 49),
 ('Sneha Kapoor', 27, 2, 50);
+
+-- =========================
+-- ROLE (Enum Based)
+-- =========================
+INSERT INTO role (name) VALUES
+('ADMIN'),
+('USER'),
+('MANAGER'),
+('HR'),
+('DEVELOPER');
+
+
+
+-- =========================
+-- PERSON_ROLE (Many to Many Join Table)
+-- =========================
+INSERT INTO person_role (person_id, role_id) VALUES
+
+-- Person 1
+(1, 1),  -- ADMIN
+(1, 2),  -- USER
+
+-- Person 2
+(2, 2),  -- USER
+
+-- Person 3
+(3, 2),  -- USER
+(3, 5),  -- DEVELOPER
+
+-- Person 4
+(4, 3),  -- MANAGER
+(4, 2),  -- USER
+
+-- Person 5
+(5, 4),  -- HR
+
+-- Person 6
+(6, 5),  -- DEVELOPER
+(6, 2),  -- USER
+
+-- Person 7
+(7, 1),  -- ADMIN
+
+-- Person 8
+(8, 2),  -- USER
+
+-- Person 9
+(9, 3),  -- MANAGER
+
+-- Person 10
+(10, 2), -- USER
+(10, 5), -- DEVELOPER
+
+-- Person 11
+(11, 2), -- USER
+
+-- Person 12
+(12, 4), -- HR
+(12, 2), -- USER
+
+-- Person 13
+(13, 1), -- ADMIN
+(13, 3), -- MANAGER
+
+-- Person 14
+(14, 2), -- USER
+
+-- Person 15
+(15, 5), -- DEVELOPER
+
+-- Person 16
+(16, 2), -- USER
+(16, 4), -- HR
+
+-- Person 17
+(17, 5), -- DEVELOPER
+(17, 2), -- USER
+
+-- Person 18
+(18, 2), -- USER
+
+-- Person 19
+(19, 3), -- MANAGER
+
+-- Person 20
+(20, 1), -- ADMIN
+(20, 2), -- USER
+
+-- Person 21
+(21, 4), -- HR
+
+-- Person 22
+(22, 2), -- USER
+(22, 5), -- DEVELOPER
+
+-- Person 23
+(23, 2), -- USER
+
+-- Person 24
+(24, 2), -- USER
+(24, 4), -- HR
+
+-- Person 25
+(25, 3), -- MANAGER
+
+-- Person 26 to 50 → Default USER role
+(26, 2),
+(27, 2),
+(28, 2),
+(29, 2),
+(30, 2),
+(31, 2),
+(32, 2),
+(33, 2),
+(34, 2),
+(35, 2),
+(36, 2),
+(37, 2),
+(38, 2),
+(39, 2),
+(40, 2),
+(41, 2),
+(42, 2),
+(43, 2),
+(44, 2),
+(45, 2),
+(46, 2),
+(47, 2),
+(48, 2),
+(49, 2),
+(50, 2);
