@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,4 +28,8 @@ public class Company {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "city_id", nullable = false)
     private City city;
+
+    // Inverse side & In one company there can be multiple Person
+    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
+    private List<Person> persons = new ArrayList<>();
 }

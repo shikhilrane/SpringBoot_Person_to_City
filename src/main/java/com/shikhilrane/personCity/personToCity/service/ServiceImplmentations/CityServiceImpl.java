@@ -72,24 +72,4 @@ public class CityServiceImpl implements CityService {
 
         return byId.map(city -> modelMapper.map(city, CityCompanyDto.class));
     }
-
-
-//    @Override
-//    public Optional<CityCompanyDto> getCityComapnies(Long id) {
-//        Optional<City> byId = cityRepository.findById(id);
-//        return byId
-//                .stream()
-//                .map(e -> modelMapper.map(e,CityCompanyDto.class))
-//                .toList();
-////                .map((e) -> {
-////                    CityCompanyDto cityCompanyDto = modelMapper.map(e,CityCompanyDto.class);
-////                    cityCompanyDto.setCompanies(
-////                            e.getCompanies()
-////                                    .stream()
-////                                    .map(c -> c.getName())
-////                                    .toList()
-////                    );
-////                    return cityCompanyDto;
-////                });
-//    }
 }

@@ -18,5 +18,5 @@ public class PersonDto {
     private String country;
     private String aadhaarNumber;
     private List<String> roles;   // ADMIN, USER, MANAGER...
-
+    private String company_name;
 }

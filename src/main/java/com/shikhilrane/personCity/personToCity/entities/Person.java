@@ -42,4 +42,9 @@ public class Person {
     )
     private List<Role> roles = new ArrayList<>();
 
+    // Owning Side & many person can be in one Company
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "company_id")
+    private Company company;
+
 }

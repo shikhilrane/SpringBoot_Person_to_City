@@ -19,7 +19,8 @@ public class ConfigureCityCompany {
     @PostConstruct
     public void configureCityCompany() {
         modelMapper.createTypeMap(City.class, CityCompanyDto.class)
-                .addMappings(m -> m.map(
+                .addMappings(m ->
+                        m.map(
                         src -> {
                             if (src.getCompanies() == null) return List.of();
                             return src.getCompanies()

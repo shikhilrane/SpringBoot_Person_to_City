@@ -63,61 +63,94 @@ INSERT INTO aadhar_card (aadhar_number) VALUES
 ('8091 4526 7380'),
 ('6473 1905 2846');
 
+-- =========================
+-- COMPANY
+-- =========================
+INSERT INTO company (name, industry, city_id) VALUES
+('TCS Indore', 'IT Services', 1),
+('Infosys Indore', 'IT Services', 1),
+('Persistent Systems', 'Software', 1),
+
+('MP State Finance Corp', 'Finance', 2),
+('Bhopal Tech Park', 'Technology', 2),
+
+('Reliance Industries', 'Conglomerate', 3),
+('Tata Motors', 'Automobile', 3),
+('Wipro Mumbai', 'IT Services', 3),
+
+('Flipkart Bangalore', 'E-Commerce', 4),
+('Google India', 'Technology', 4),
+('Infosys Bangalore', 'IT Services', 4),
+('Swiggy HQ', 'FoodTech', 4),
+
+('Amazon Hyderabad', 'E-Commerce', 5),
+('Microsoft Hyderabad', 'Technology', 5),
+('Deloitte Hyderabad', 'Consulting', 5);
+
 
 -- =========================
 -- PERSON
 -- =========================
-INSERT INTO person (name, age, city_id, aadhar_id) VALUES
-('Rohan Malhotra', 27, 4, 1),
-('Amit Sharma', 25, 1, 2),
-('Kavya Reddy', 22, 5, 3),
-('Priya Desai', 26, 3, 4),
-('Deepak Rawat', 33, 2, 5),
-('Snehal Patwardhan', 31, 4, 6),
-('Rahul Jain', 35, 1, 7),
-('Sai Kiran', 24, 5, 8),
-('Shruti Naik', 24, 3, 9),
-('Tarun Tiwari', 36, 2, 10),
-('Komal Goyal', 25, 3, 11),
-('Ananya Iyer', 23, 4, 12),
-('Rohit Verma', 30, 1, 13),
-('Ravi Teja', 34, 5, 14),
-('Manish Shah', 38, 3, 15),
-('Meghana Kulkarni', 24, 4, 16),
-('Ankit Yadav', 24, 1, 17),
-('Bhavya Shekar', 27, 5, 18),
-('Pooja Patel', 28, 1, 19),
-('Rakesh Kulkarni', 40, 3, 20),
-('Pallavi Joshi', 29, 4, 21),
-('Kunal Thakur', 34, 2, 22),
-('Ajay Kumar', 35, 5, 23),
-('Neha Gupta', 22, 1, 24),
-('Divya Nair', 26, 4, 25),
-('Omkar Joshi', 29, 3, 26),
-('Lakshmi Narayan', 41, 5, 27),
-('Kiran Malviya', 31, 1, 28),
-('Suresh Rao', 45, 4, 29),
-('Sumanth Rao', 28, 5, 30),
-('Vikas Mishra', 34, 1, 31),
-('Siddhi More', 22, 3, 32),
-('Harsha Gowda', 33, 4, 33),
-('Rashmi Joshi', 28, 2, 34),
-('Pooja Chandra', 26, 5, 35),
-('Aarti Bansal', 27, 3, 36),
-('Ritu Singh', 26, 1, 37),
-('Aditya Soni', 21, 2, 38),
-('Prakash Shetty', 39, 4, 39),
-('Nitin Patil', 31, 3, 40),
-('Nikhil Varma', 30, 5, 41),
-('Sonal Mehta', 27, 1, 42),
-('Vishal Pawar', 35, 3, 43),
-('Arjun Khan', 29, 2, 44),
-('Karthik Reddy', 28, 4, 45),
-('Swathi Menon', 23, 5, 46),
-('Mohit Saxena', 32, 2, 47),
-('Nisha Ali', 23, 2, 48),
-('Isha Choudhary', 25, 2, 49),
-('Sneha Kapoor', 27, 2, 50);
+INSERT INTO person (name, age, city_id, aadhar_id, company_id) VALUES
+ ('Rohan Malhotra', 27, 4, 1, 9),
+ ('Amit Sharma', 25, 1, 2, 1),
+ ('Kavya Reddy', 22, 5, 3, 13),
+ ('Priya Desai', 26, 3, 4, 6),
+ ('Deepak Rawat', 33, 2, 5, 4),
+ ('Snehal Patwardhan', 31, 4, 6, 10),
+ ('Rahul Jain', 35, 1, 7, 2),
+ ('Sai Kiran', 24, 5, 8, 14),
+ ('Shruti Naik', 24, 3, 9, 7),
+ ('Tarun Tiwari', 36, 2, 10, 5),
+
+ ('Komal Goyal', 25, 3, 11, 8),
+ ('Ananya Iyer', 23, 4, 12, 11),
+ ('Rohit Verma', 30, 1, 13, 3),
+ ('Ravi Teja', 34, 5, 14, 15),
+ ('Manish Shah', 38, 3, 15, 6),
+
+ ('Meghana Kulkarni', 24, 4, 16, 9),
+ ('Ankit Yadav', 24, 1, 17, 1),
+ ('Bhavya Shekar', 27, 5, 18, 13),
+ ('Pooja Patel', 28, 1, 19, 2),
+ ('Rakesh Kulkarni', 40, 3, 20, 7),
+
+ ('Pallavi Joshi', 29, 4, 21, 10),
+ ('Kunal Thakur', 34, 2, 22, 4),
+ ('Ajay Kumar', 35, 5, 23, 14),
+ ('Neha Gupta', 22, 1, 24, 3),
+ ('Divya Nair', 26, 4, 25, 11),
+
+ ('Omkar Joshi', 29, 3, 26, 6),
+ ('Lakshmi Narayan', 41, 5, 27, 15),
+ ('Kiran Malviya', 31, 1, 28, 1),
+ ('Suresh Rao', 45, 4, 29, 12),
+ ('Sumanth Rao', 28, 5, 30, 13),
+
+ ('Vikas Mishra', 34, 1, 31, 2),
+ ('Siddhi More', 22, 3, 32, 8),
+ ('Harsha Gowda', 33, 4, 33, 10),
+ ('Rashmi Joshi', 28, 2, 34, 5),
+ ('Pooja Chandra', 26, 5, 35, 14),
+
+ ('Aarti Bansal', 27, 3, 36, 7),
+ ('Ritu Singh', 26, 1, 37, 1),
+ ('Aditya Soni', 21, 2, 38, 4),
+ ('Prakash Shetty', 39, 4, 39, 11),
+ ('Nitin Patil', 31, 3, 40, 6),
+
+ ('Nikhil Varma', 30, 5, 41, 13),
+ ('Sonal Mehta', 27, 1, 42, 3),
+ ('Vishal Pawar', 35, 3, 43, 8),
+ ('Arjun Khan', 29, 2, 44, 5),
+ ('Karthik Reddy', 28, 4, 45, 9),
+
+ ('Swathi Menon', 23, 5, 46, 14),
+ ('Mohit Saxena', 32, 2, 47, 4),
+ ('Nisha Ali', 23, 2, 48, 5),
+ ('Isha Choudhary', 25, 2, 49, 4),
+ ('Sneha Kapoor', 27, 2, 50, 5);
+
 
 -- =========================
 -- ROLE (Enum Based)
@@ -250,26 +283,3 @@ INSERT INTO person_role (person_id, role_id) VALUES
 (49, 2),
 (50, 2);
 
--- =========================
--- COMPANY
--- =========================
-INSERT INTO company (name, industry, city_id) VALUES
-('TCS Indore', 'IT Services', 1),
-('Infosys Indore', 'IT Services', 1),
-('Persistent Systems', 'Software', 1),
-
-('MP State Finance Corp', 'Finance', 2),
-('Bhopal Tech Park', 'Technology', 2),
-
-('Reliance Industries', 'Conglomerate', 3),
-('Tata Motors', 'Automobile', 3),
-('Wipro Mumbai', 'IT Services', 3),
-
-('Flipkart Bangalore', 'E-Commerce', 4),
-('Google India', 'Technology', 4),
-('Infosys Bangalore', 'IT Services', 4),
-('Swiggy HQ', 'FoodTech', 4),
-
-('Amazon Hyderabad', 'E-Commerce', 5),
-('Microsoft Hyderabad', 'Technology', 5),
-('Deloitte Hyderabad', 'Consulting', 5);

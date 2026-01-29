@@ -23,6 +23,7 @@ public class ConfigurePersonDto {
                     e.map(src -> src.getCity().getState(), PersonDto::setState);
                     e.map(src -> src.getCity().getCountry(), PersonDto::setCountry);
                     e.map(src -> src.getAadharCard().getAadharNumber(), PersonDto::setAadhaarNumber);
+                    e.map(src -> src.getCompany().getName(), PersonDto::setCompany_name);
                 });
     }
 }
