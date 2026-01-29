@@ -249,3 +249,27 @@ INSERT INTO person_role (person_id, role_id) VALUES
 (48, 2),
 (49, 2),
 (50, 2);
+
+-- =========================
+-- COMPANY
+-- =========================
+INSERT INTO company (name, industry, city_id) VALUES
+('TCS Indore', 'IT Services', 1),
+('Infosys Indore', 'IT Services', 1),
+('Persistent Systems', 'Software', 1),
+
+('MP State Finance Corp', 'Finance', 2),
+('Bhopal Tech Park', 'Technology', 2),
+
+('Reliance Industries', 'Conglomerate', 3),
+('Tata Motors', 'Automobile', 3),
+('Wipro Mumbai', 'IT Services', 3),
+
+('Flipkart Bangalore', 'E-Commerce', 4),
+('Google India', 'Technology', 4),
+('Infosys Bangalore', 'IT Services', 4),
+('Swiggy HQ', 'FoodTech', 4),
+
+('Amazon Hyderabad', 'E-Commerce', 5),
+('Microsoft Hyderabad', 'Technology', 5),
+('Deloitte Hyderabad', 'Consulting', 5);

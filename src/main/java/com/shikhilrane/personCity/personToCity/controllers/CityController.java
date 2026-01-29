@@ -1,5 +1,6 @@
 package com.shikhilrane.personCity.personToCity.controllers;
 
+import com.shikhilrane.personCity.personToCity.dto.CityCompanyDto;
 import com.shikhilrane.personCity.personToCity.dto.PersonDto;
 import com.shikhilrane.personCity.personToCity.dto.PersonDtoForAll;
 import com.shikhilrane.personCity.personToCity.dto.PersonDtoForCity;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/city")
@@ -26,9 +28,17 @@ public class CityController {
         return ResponseEntity.ok(getAll);
     }
 
-    @GetMapping("/{getPersonsByCityId}")
+    @GetMapping("/getCity/{getPersonsByCityId}")
     public ResponseEntity<List<PersonDtoForCity>> getPersonsByCity(@PathVariable (name = "getPersonsByCityId") Long id){
         List<PersonDtoForCity> city = cityService.getAllPersons(id);
         return ResponseEntity.ok(city);
+    }
+
+    @GetMapping("/getCityCompany/{getCityCompanyById}")
+    public ResponseEntity<CityCompanyDto> getCityCompany(@PathVariable(name = "getCityCompanyById") Long id){
+       Optional<CityCompanyDto> getListOfCompany = cityService.getCityComapnies(id);
+       return getListOfCompany
+               .map(e -> ResponseEntity.ok(e))
+               .orElseThrow(() -> new RuntimeException("City with given id not found " + id));
     }
 }

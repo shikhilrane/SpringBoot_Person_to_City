@@ -1,9 +1,12 @@
 package com.shikhilrane.personCity.personToCity.service.ServiceImplmentations;
 
+import com.shikhilrane.personCity.personToCity.dto.CityCompanyDto;
 import com.shikhilrane.personCity.personToCity.dto.PersonDto;
 import com.shikhilrane.personCity.personToCity.dto.PersonDtoForAll;
 import com.shikhilrane.personCity.personToCity.dto.PersonDtoForCity;
+import com.shikhilrane.personCity.personToCity.entities.City;
 import com.shikhilrane.personCity.personToCity.entities.Person;
+import com.shikhilrane.personCity.personToCity.repositories.CityRepository;
 import com.shikhilrane.personCity.personToCity.repositories.PersonRepository;
 import com.shikhilrane.personCity.personToCity.service.CityService;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -19,6 +23,7 @@ import java.util.stream.Collectors;
 public class CityServiceImpl implements CityService {
 
     private final PersonRepository personRepository;
+    private final CityRepository cityRepository;
     private final ModelMapper modelMapper;
 
 
@@ -60,4 +65,31 @@ public class CityServiceImpl implements CityService {
                 .map(all1 -> modelMapper.map(all1, PersonDtoForAll.class))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public Optional<CityCompanyDto> getCityComapnies(Long id) {
+        Optional<City> byId = cityRepository.findById(id);
+
+        return byId.map(city -> modelMapper.map(city, CityCompanyDto.class));
+    }
+
+
+//    @Override
+//    public Optional<CityCompanyDto> getCityComapnies(Long id) {
+//        Optional<City> byId = cityRepository.findById(id);
+//        return byId
+//                .stream()
+//                .map(e -> modelMapper.map(e,CityCompanyDto.class))
+//                .toList();
+////                .map((e) -> {
+////                    CityCompanyDto cityCompanyDto = modelMapper.map(e,CityCompanyDto.class);
+////                    cityCompanyDto.setCompanies(
+////                            e.getCompanies()
+////                                    .stream()
+////                                    .map(c -> c.getName())
+////                                    .toList()
+////                    );
+////                    return cityCompanyDto;
+////                });
+//    }
 }
